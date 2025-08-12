@@ -1,9 +1,10 @@
 #include <iostream>
-#include <map>
-#include <string>
-#include <cctype>
-
 using namespace std;
+
+int main(){
+cout << "Morse code translator starting..." << endl;
+    return 0;
+}
 
 // Define ASCII characters for dot and dash
 const char DOT = 46;   // ASCII 46 = '.'
