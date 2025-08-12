@@ -1,10 +1,8 @@
 #include <iostream>
+#include <map>
+#include <string>
+#include <cctype>
 using namespace std;
-
-int main(){
-cout << "Morse code translator starting..." << endl;
-    return 0;
-}
 
 const char DOT = 46;   // '.'
 const char DASH = 45;  // '-'
@@ -32,11 +30,6 @@ string convertToMorse(char c) {
 }
 
 int main() {
-    cout << convertToMorse('A') << endl; // test
-    return 0;
-}
-
-int main() {
     string message;
     cout << "Enter your message: ";
     getline(cin, message);
@@ -58,7 +51,7 @@ int main() {
             cout << upperChar << ": " << morse << endl;
             fullMorseMessage += morse + "   ";  // Three spaces between letters
         }
-        // Ignore non-alphabetic characters
+        
     }
 
     cout << "\nFull Morse code with spaces:\n" << fullMorseMessage << endl;
