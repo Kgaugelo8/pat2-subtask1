@@ -6,11 +6,10 @@ cout << "Morse code translator starting..." << endl;
     return 0;
 }
 
-// Define ASCII characters for dot and dash
-const char DOT = 46;   // ASCII 46 = '.'
-const char DASH = 45;  // ASCII 45 = '-'
+const char DOT = 46;   // '.'
+const char DASH = 45;  // '-'
 
-// Function to convert a character to Morse code
+
 string convertToMorse(char c) {
     map<char, string> morseCode = {
         {'A', ".-"},   {'B', "-..."}, {'C', "-.-."}, {'D', "-.."},  {'E', "."},
@@ -30,6 +29,11 @@ string convertToMorse(char c) {
         return morse;
     }
     return "";
+}
+
+int main() {
+    cout << convertToMorse('A') << endl; // test
+    return 0;
 }
 
 int main() {
