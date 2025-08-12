@@ -41,6 +41,14 @@ int main() {
     cout << "Enter your message: ";
     getline(cin, message);
 
+ for (char c : message) {
+        if (isalpha(c)) {
+            cout << toupper(c) << ": " << convertToMorse(c) << endl;
+        }
+    }
+
+    return 0;
+}
     string fullMorseMessage = "";
 
     for (char c : message) {
