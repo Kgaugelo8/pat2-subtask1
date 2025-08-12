@@ -1,0 +1,55 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+// Define ASCII characters for dot and dash
+const char DOT = 46;   // ASCII 46 = '.'
+const char DASH = 45;  // ASCII 45 = '-'
+
+// Function to convert a character to Morse code
+string convertToMorse(char c) {
+    map<char, string> morseCode = {
+        {'A', ".-"},   {'B', "-..."}, {'C', "-.-."}, {'D', "-.."},  {'E', "."},
+        {'F', "..-."}, {'G', "--."},  {'H', "...."}, {'I', ".."},   {'J', ".---"},
+        {'K', "-.-"},  {'L', ".-.."}, {'M', "--"},   {'N', "-."},   {'O', "---"},
+        {'P', ".--."}, {'Q', "--.-"}, {'R', ".-."},  {'S', "..."},  {'T', "-"},
+        {'U', "..-"},  {'V', "...-"}, {'W', ".--"},  {'X', "-..-"}, {'Y', "-.--"},
+        {'Z', "--.."}
+    };
+
+    c = toupper(c);
+    if (morseCode.find(c) != morseCode.end()) {
+        string morse = "";
+        for (char symbol : morseCode[c]) {
+            morse += (symbol == '.' ? DOT : DASH);
+        }
+        return morse;
+    }
+    return "";
+}
+
+int main() {
+    string message;
+    cout << "Enter your message: ";
+    getline(cin, message);
+
+    string fullMorseMessage = "";
+
+    for (char c : message) {
+        if (isalpha(c)) {
+            char upperChar = toupper(c);
+            string morse = convertToMorse(upperChar);
+            cout << upperChar << ": " << morse << endl;
+            fullMorseMessage += morse + "   ";  // Three spaces between letters
+        }
+        // Ignore non-alphabetic characters
+    }
+
+    cout << "\nFull Morse code with spaces:\n" << fullMorseMessage << endl;
+
+    return 0;
+}
+
